@@ -11,6 +11,9 @@ import android.os.CountDownTimer;
 import android.view.MotionEvent;
 import android.view.View;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
+
+
 public class GameView extends View {
 
     private Sprite playerBird;
@@ -24,6 +27,8 @@ public class GameView extends View {
     private int points = 0;
 
     private final int timerInterval = 30;
+
+    private ConstraintLayout layout;
 
     public GameView(Context context) {
         super(context);
@@ -108,6 +113,7 @@ public class GameView extends View {
 
     }
 
+
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
@@ -123,7 +129,11 @@ public class GameView extends View {
         canvas.drawText(points + "", viewWidth - 200, 70, p);
     }
 
+
+
     protected void update () {
+
+
         playerBird.update(timerInterval);
         enemyBird.update(timerInterval);
         posBird.update(timerInterval);
@@ -157,7 +167,11 @@ public class GameView extends View {
             teleportPos();
             points += 40;
         }
+        if (layout.getX() == posBird.getX()){
+            teleportPos();
+            points +=40;
 
+        }
 
         invalidate();
     }
@@ -180,6 +194,8 @@ public class GameView extends View {
 
         return true;
     }
+
+
 
 
     private void teleportEnemy () {
