@@ -138,23 +138,23 @@ public class GameView extends View {
         enemyBird.update(timerInterval);
         posBird.update(timerInterval);
 
-        if (playerBird.getY() + playerBird.getFrameHeight() > viewHeight) {
+        if (playerBird.getBY() + playerBird.getFrameHeight() > viewHeight) {
             playerBird.setY(viewHeight - playerBird.getFrameHeight());
             playerBird.setVy(-playerBird.getVy());
             points--;
         }
-        else if (playerBird.getY() < 0) {
+        else if (playerBird.getBY() < 0) {
             playerBird.setY(0);
             playerBird.setVy(-playerBird.getVy());
             points--;
         }
 
-        if (enemyBird.getX() < - enemyBird.getFrameWidth()) {
+        if (enemyBird.getBX() < - enemyBird.getFrameWidth()) {
             teleportEnemy();
             points +=10;
         }
 
-        if (posBird.getX() < - posBird.getFrameWidth()) {
+        if (posBird.getBX() < - posBird.getFrameWidth()) {
             teleportPos();
         }
 
@@ -166,11 +166,6 @@ public class GameView extends View {
         if (posBird.intersect(playerBird)) {
             teleportPos();
             points += 40;
-        }
-        if (layout.getX() == posBird.getX()){
-            teleportPos();
-            points +=40;
-
         }
 
         invalidate();
@@ -190,7 +185,9 @@ public class GameView extends View {
                 playerBird.setVy(100);
                 points--;
             }
+
         }
+
 
         return true;
     }
@@ -225,4 +222,5 @@ public class GameView extends View {
 
         }
     }
+
 }

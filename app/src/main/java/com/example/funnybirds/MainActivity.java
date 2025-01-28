@@ -17,28 +17,5 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main);
         setContentView(new GameView(this));
-        layout = findViewById(R.layout.activity_main);
-
-
-        layout.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                    // Получаем координаты клика относительно родительского View
-                    clickX = event.getX();
-                    clickY = event.getY();
-                }
-                return true;
-            }
-        });
     }
-
-    public float getClickX(){
-        return clickX;
-    }
-
-    public float getClickY(){
-        return clickY;
-    }
-
 }

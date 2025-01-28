@@ -55,7 +55,7 @@ public class Sprite {
         this.padding = 20;
     }
 
-    public double getX() {
+    public double getBX() {
         return x;
     }
 
@@ -63,7 +63,7 @@ public class Sprite {
         this.x = x;
     }
 
-    public double getY() {
+    public double getBY() {
         return y;
     }
 
