@@ -8,9 +8,6 @@ import android.view.MotionEvent;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
-    private ConstraintLayout layout;
-    private float clickX;
-    private float clickY;
     @SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState) {

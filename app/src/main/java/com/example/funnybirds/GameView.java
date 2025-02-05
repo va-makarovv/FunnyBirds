@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -185,11 +186,19 @@ public class GameView extends View {
                 playerBird.setVy(100);
                 points--;
             }
+            if
+            (event.getY() > posBird.getBoundingBoxRect().top && (event.getX() > posBird.getBoundingBoxRect().left)&& (event.getY() < posBird.getBoundingBoxRect().bottom) && (event.getX() < posBird.getBoundingBoxRect().right)){
+
+                teleportPos();
+                Log.d("TOUCH", "touched");
+                points += 40;
+            }
+
+            Log.d("TOUCH", "y1 - " + event.getY() + " x1 - " + event.getX() + " birdxy"+  posBird.getBoundingBoxRect().toString() + posBird.getBoundingBoxRect().top
+            + " " + posBird.getBoundingBoxRect().bottom);
 
         }
-
-
-        return true;
+        return false;
     }
 
 
